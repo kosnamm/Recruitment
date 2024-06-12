@@ -31,6 +31,18 @@
 </template>
 
 <script>
+import { createApp,reactive } from 'vue';
+createApp ({
+  setup(){
+    const web = reactive({
+      url : "11",
+      user : 10
+    })
+    return {
+      web
+    }
+  }
+})
 export default {
   name: 'HelloWorld',
   props: {
