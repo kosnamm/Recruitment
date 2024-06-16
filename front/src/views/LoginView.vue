@@ -1,5 +1,5 @@
 <template>
-    <pageTop></pageTop>
+    <PageTop></PageTop>
     <div class="login-container">
     <h1>Welcome</h1>
     <form @submit.prevent="login">
@@ -15,11 +15,11 @@
 </template>
 <script>
 import axios from 'axios';
-import pageTop from '../components/pagetop.vue'
+import PageTop from '../components/PageTop.vue'
 export default {
     name: 'LoginView',
     components: {
-        pageTop
+        PageTop
     },
     data() {
         return {

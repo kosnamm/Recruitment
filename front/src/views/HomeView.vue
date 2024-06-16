@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <pageTop></pageTop>
+        <PageTop></PageTop>
         <h1>2024 Fall</h1>
         <table class="company-list">
             <thead>
@@ -27,12 +27,12 @@
 </template>
 
 <script>
-import pageTop from '../components/pagetop.vue';
+import PageTop from '../components/PageTop.vue';
 import axios from 'axios';
 export default {
     name: 'HomeView',
     components: {
-        pageTop,
+        PageTop,
     },
     data() {
         return {

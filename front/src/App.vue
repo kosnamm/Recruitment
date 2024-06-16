@@ -1,13 +1,20 @@
 <template>
   <div id ="app">
     <router-view></router-view>
+    <AlertMessage v-if="showAlert" :message="alertMessage" :visible="showAlert" @close="clearAlert"></AlertMessage>
   </div>
 </template>
 
 <script>
-
+import { mapGetters, mapActions} from'vuex';
 export default {
   name: 'App',
+  computed:{
+    ...mapGetters(['alertMessage','showAlert'])
+  },
+  methods:{
+    ...mapActions(['clearAlert']),
+  }
 }
 </script>
 
