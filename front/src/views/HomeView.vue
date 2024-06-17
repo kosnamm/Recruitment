@@ -1,38 +1,30 @@
 <template>
     <div class="home">
         <PageTop></PageTop>
-        <h1>2024 Fall</h1>
-        <table class="company-list">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>公司名称</th>
-                    <th>招聘开启日期</th>
-                    <th>招聘截止日期</th>
-                    <th>校招官网</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="company in companies" :key="company.id">
-                    <td>{{ company.id }}</td>
-                    <td>{{ company.name }}</td>
-                    <td>{{ company.createDate }}</td>
-                    <td>{{ company.endDate }}</td>
-                    <td>{{ company.url }}</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="home-container">
+            <h1>2024 Fall</h1>
+            <CompanyInfo></CompanyInfo>
+        </div>
+        <footer class="page-footer">
+            <nav class="pagination">
+                <a class="next" href="index.html">»</a>
+            </nav>
+        </footer>
+        
     </div>
+    
 
 </template>
 
 <script>
 import PageTop from '../components/PageTop.vue';
+import CompanyInfo from '../components/CompanyInfo.vue'
 import axios from 'axios';
 export default {
     name: 'HomeView',
     components: {
         PageTop,
+        CompanyInfo,
     },
     data() {
         return {

@@ -145,6 +145,55 @@ body {
 .company-list td a:hover {
     text-decoration: underline;
 }
+.page-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.upload-form{
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    max-width: 600px;
+    margin: 200px auto;
+    padding: 20px;
+    border: 2px;
+    border-radius: var(--radius);
+    background-color: var(--theme);
+}
+.upload-form div{
+    margin-bottom: 15px;
+    text-align: left;
+}
+.upload-form label{
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+}
+.upload-form input{
+    width: 100%;
+    padding: 10px;
+    /* background-color: var(--secondary); */
+    border: 2px solid;
+    border-color: var(--primary);
+    border-radius: var(--radius);
+    box-sizing: border-box;
+}
+.upload-form button{
+    width: 100px;
+    height: 50px;
+    padding: 10px, 20px;
+    background-color: var(--primary);
+    color: aliceblue;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+}
+.upload-form button:hover{
+    background-color: var(--secondary);
+}
 
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section, table {
     display: block
@@ -1230,7 +1279,55 @@ h1:hover .anchor, h2:hover .anchor, h3:hover .anchor, h4:hover .anchor, h5:hover
         padding: calc((var(--footer-height) - var(--gap) - 10px) / 2) var(--gap)
     }
 }
+.search-container{
+    max-width: 800px;
+    margin:20px auto;
+    padding:20px;
+    background-color: var(--theme);
+    border-radius: var(--radius);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.search-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.search-box input {
+  flex: 1;
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid var(--secondary);
+  border-radius: var(--radius);
+}
 
+.search-box button {
+  padding: 10px 20px;
+  background-color: var(--primary);
+  color: var(--theme);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.search-box button:hover {
+  background-color: var(--theme);
+}
+
+.search-results ul {
+  list-style: none;
+  padding: 0;
+}
+
+.search-results li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.no-results {
+  color: #999;
+  text-align: center;
+}
 @media screen and (min-width: 768px) {
     ::-webkit-scrollbar {
         width: 19px;

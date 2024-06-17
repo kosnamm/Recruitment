@@ -1,16 +1,54 @@
 <template>
     <PageTop></PageTop>
-    <div>
-    <h1>Search</h1>
-    
+    <div class="search-box">
+        <input
+            type="text"
+            v-model="query"
+            @input="handleSearch"
+            placeholder="输入公司名称"
+        />
+        <button @click="handleSearch">Search</button>
+    </div>
+    <div v-if="searchResults.length > 0" class="search-results">
+        <ul>
+            <li v-for="(result, index) in searchResults" :key="index">
+                {{ result.companyName }}
+            </li>
+        </ul>
+    </div>
+    <div v-else-if="query.lenght > 0" class="no-results">
+        No results found for "{{ query }}"
     </div>
 </template>
 
 <script>
 import PageTop from '../components/PageTop.vue';
+import axios from 'axios';
 export default{
     name: 'SearchView',
     components: PageTop,
+    data(){
+        return {
+            query:'',
+            searchResults:[],
+        }
+    },
+    methods:{
+        async handleSearch(){
+            if (this.query.trim() === ''){
+                this.searchResults = [];
+                return
+            }
+            try{
+                // todo
+                const response = await axios.get('BACKEND_URL/search?companyName=${this.query}');
+                this.searchResults = response.data;
+            }catch(error) {
+                console.error('Error fetching search results:',error);
+                this.searchResults = [];
+            }
+        }
+    }
 };
 
 </script>

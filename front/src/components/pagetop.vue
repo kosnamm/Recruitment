@@ -31,22 +31,38 @@
                     <router-link v-if="isInternalPath(item.path)" :to="item.path">{{ item.describe }}</router-link>
                     <a v-else :href="item.path" target="_blank">{{ item.describe }}</a>
                 </li> -->
-                <li v-for="(item, index) in titledata" :key="index">
+                <li v-for="(item, index) in filteredTitleData" :key="index">
                     <router-link v-if="isInternalPath(item.path)" :to="item.path"> {{ item.describe }}</router-link>
                     <a v-else :href="item.path" target="_blank">{{ item.describe }}</a>
                 </li>
+                <li v-if="isAuthenticated">
+                    <button @click="logout">SignOut</button>
+                </li>
+                
             </ul>
 
         </nav>
     </header>
 </template>
 <script>
-
+import {mapGetters, mapActions} from 'vuex'
 export default {
-    name: 'pageTop',
+    name: 'PageTop',
+    computed:{
+        ...mapGetters(['isAuthenticated']),
+        filteredTitleData(){
+            return this.titledata.filter(item=>{
+                if (this.isAuthenticated && (item.path === '/login' || item.path === '/signup')) {
+                    return false;
+                }
+                return true;
+            });
+        },
+    },
     methods: {
+        ...mapActions(['logout']),
         isInternalPath(path) {
-            return path.startsWith('/')
+            return path.startsWith('/');
         }
     },
     data() {

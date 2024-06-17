@@ -9,5 +9,4 @@ app.component('AlertMessage',AlertMessage)
 app.component('PageTop',PageTop)
 app.use(store)
 app.use(router);
-
 app.mount('#app');

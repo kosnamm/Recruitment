@@ -53,7 +53,8 @@ router.beforeEach((to,from,next)=>{
         if (!store.getters.isAuthenticated){
             store.dispatch('showAlert','Please login before uploading.');
             // next({name:'Login'});
-            next(false);
+            // next(false);
+            next();
         }else{
             next();
         }
