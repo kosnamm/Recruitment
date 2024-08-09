@@ -10,10 +10,7 @@
                 <a class="next" href="index.html">»</a>
             </nav>
         </footer>
-        
     </div>
-    
-
 </template>
 
 <script>
